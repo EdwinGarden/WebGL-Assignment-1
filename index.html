@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="webgl-utils.js" ></script>
+		<script type="text/javascript" src="initShaders.js" ></script>
+		<!--
+		<script type="text/javascript" src="../Common/flatten.js" ></script>
+		-->
+		<script type="text/javascript" src="MV.js" ></script>
+		<script type="text/javascript" src="assignment1.js" ></script>
+		
+		<!-- 
+		Tie up slider to text - Example
+		
+		<script>
+		    function updateSlider(slideAmount) 
+			{
+				//var sliderText = document.getElementById("sldrValue");
+				//sliderText.innerHTML = sliderText.valueAsNumber;
+				document.querySelector('#numSteps').value = slideAmount;
+			}
+		</script>
+		
+		-->
+
+		<!-- Shaders -->
+		<script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec4 vPosition; // vertex position from application
+			void main()
+			{
+				gl_Position = vPosition;
+			}
+		</script>
+
+		<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float; // must set precision
+			void main()
+			{
+				gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); 
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--
+		<div>
+		
+			<form method="post">
+				<fieldset>
+						<legend>Select shape:
+							<input type="radio" name="shape" value="Triangle" />Triangle<br />
+							<input type="radio" name="shape" value="Square" />Square<br />
+							<input type="submit" value="Submit now" />
+						</legend>
+				</fieldset>
+			</form>
+			
+		</div>
+		-->
+		<div>
+		</div>
+
+				<legend>Select shape:
+					<br/>
+					<input id="isTriangle" type="radio" name="shape" value="Triangle" checked="true"  />Triangle<br />
+					<input id="isSquare" type="radio" name="shape" value="Square"  />Square<br />
+					<!--
+					<input type="submit" value="Submit" />
+					-->
+				</legend>
+
+		<div>
+			Recursive Steps: 0
+			<input input id="slider" type="range" min="0" max="5" step="1" value="0"  />
+			5
+		</div>
+		<div>
+			Rotation Angle: 0
+			<input input id="slider_angle" type="range" min="0" max="360" step="1" value="0"  />
+			360
+		</div>
+		<canvas id="gl-canvas" width="1024" height="1024">
+			Sorry.. your browser doesn't support the HTML5 canvas element
+		</canvas>
+		<!-- <input id="sldr" type="range" min="0" max="7" value="1" step="1"  oninput="updateSlider(value)"  /> -->
+		<!--
+		<output for="sldr" id="numSteps">0</output>
+		-->
+
+	</body>
+</html>

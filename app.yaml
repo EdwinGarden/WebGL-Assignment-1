@@ -1,0 +1,26 @@
+application: webgl-001-assignment1
+version: main
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+  
+- url: /assignment1.js
+  static_files: assignment1.js
+  upload: assignment1.js
+  
+- url: /initShaders.js
+  static_files: initShaders.js
+  upload: initShaders.js
+  
+- url: /MV.js
+  static_files: MV.js
+  upload: MV.js
+  
+- url: /webgl-utils.js
+  static_files: webgl-utils.js
+  upload: webgl-utils.js
