@@ -35,20 +35,52 @@ function init()
 	_gl.vertexAttribPointer(vPosition, 2, _gl.FLOAT, false, 0, 0 ); 
 	_gl.enableVertexAttribArray(vPosition);
 	
-	document.getElementById("slider").onchange = function() 
+	document.getElementById("slider").onchange = function(event) 
 	{
-		_numberTimesToSubdivide = event.srcElement.value;
+		var target;
+		if (event.target)
+		{
+			target = event.target;
+		}	
+		else if (event.srcElement)
+		{
+			target = event.srcElement;
+		}
 		
-		//GetShape();
+		// safari bug apparently
+		if (target.nodeType == 3)
+		{
+			target = target.parentNode;
+		}
+		
+		_numberTimesToSubdivide = target.value;
+		
+		//_numberTimesToSubdivide = event.srcElement.value;
 		
 		Render();
 	}
 	
-	document.getElementById("slider_angle").onchange = function() 
+	document.getElementById("slider_angle").onchange = function(event) 
 	{
-		_rotationAngle = event.srcElement.value;
+		var target;
+		if (event.target)
+		{
+			target = event.target;
+		}	
+		else if (event.srcElement)
+		{
+			target = event.srcElement;
+		}
 		
-		//GetShape();
+		// safari bug apparently
+		if (target.nodeType == 3)
+		{
+			target = target.parentNode;
+		}
+		
+		_rotationAngle = target.value;
+		
+		//_rotationAngle = event.srcElement.value;
 		
 		Render();
 	}
